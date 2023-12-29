@@ -28,6 +28,7 @@ body{
 }
 
 .coin-img{
+  display: inline;
   position: absolute;
   margin: 0 auto;
   top: 2px;
@@ -241,8 +242,8 @@ body{
   user-select: none;
 }
 
-.idle-upgrade-button{
-  display: inline-block;
+.idle-upgradeCost-button{
+  display: inline;
   margin: 0;
   margin-left: 35px;
   text-align: left;
@@ -269,7 +270,7 @@ body{
 }
 
 .cost{
-  display: inline;
+  display: flex;
   margin: 0;
   margin-left: 5px;
   padding: 3px;
@@ -307,7 +308,7 @@ body{
   border-bottom-right-radius: 5px;
 }
 
-.idle-bar-percent{
+.idle-bar-amount{
   text-align: center;
   margin: 0;
   color: white;
