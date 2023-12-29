@@ -2,13 +2,21 @@ import GameFunction from '../../function/Game'
 const IdleGame = (props) => {
     return (
         <div>
-            <p className="character-speak" id="characterSpeak">Welcome Mortal</p>
+            <header className="character-speak" id="characterSpeak">Welcome Mortal</header>
 
-            <p className="upgrade-title">Progress bar upgrades</p>
-            <p className="upgrade-text">Increase yellow coins earned</p>
-            <input type="button" onClick={GameFunction.earnProgress} className="btn idle-upgrade-button" value="Upgrade" />
-            <div className="cost" id="earnProgressCostDisplay">cost:${props.earnProgressCost}</div>
-
+            <div className='first bar'>
+                <div className="idle-bar-div" id="idleBarDiv">
+                    <div className="idle-progress-title">Anti-Idle
+                    </div>
+                    <div className="idle-bar">
+                        <div className="idle-progress" id="idleProgress">
+                        </div>
+                        <p className="idle-bar-percent" id="idleBarPercent">0%</p>
+                    </div>
+                </div>
+                <input type="button" onClick={GameFunction.earnProgress} className="btn idle-upgrade-button" value="Upgrade" />
+                <div className="cost" id="earnProgressCostDisplay">cost:${props.earnProgressCost}</div>
+            </div>
             <p className="upgrade-text">Increase progress speed</p>
             <input type='button' onClick={GameFunction.speedProgress} className="btn idle-upgrade-button" value="Upgrade" />
             <div className="cost" id="speedProgressCostDisplay">cost:${props.speedProgressCost}</div>

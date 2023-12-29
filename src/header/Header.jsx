@@ -10,11 +10,11 @@ const Header = () => {
                             <div className="col-6">
                                 <div className="row">
                                     <div className="coin-container col-4">
-                                        <div className="yellow-coin-border coin-border">
-                                            <div className="yellow-coin coin-img"><span className="coin-position">Y</span></div>
+                                        <div className="bronze-coin-border coin-border">
+                                            <div className="bronze-coin coin-img"><span className="coin-position">Y</span></div>
                                         </div>
                                     </div>
-                                    <div className="coin-text col-8" id="yellowCoin">0</div>
+                                    <div className="coin-text col-8" id="bronzeCoin">0</div>
                                 </div>
                             </div>
                             {/* <!-- secondary currency --> */}
