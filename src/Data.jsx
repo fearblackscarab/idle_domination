@@ -1,7 +1,7 @@
 import IdleBar from "./data/idleBar";
 import Currency from "./data/Currency";
 // Data class object / research
-const Data = (props) => {
+const Data = () => {
     // Currency (escalating price to upgrade currency)
 // bronze 
 // silver

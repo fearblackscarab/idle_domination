@@ -1,4 +1,6 @@
-const Header = () => {
+import { useState } from "react";
+const Header = (props) => {
+  const [bronze, setBronze] = useState(props.bronze);
     return (
         <header className="header" id="header">
             <div className="container">
@@ -14,7 +16,7 @@ const Header = () => {
                                             <div className="bronze-coin coin-img"><span className="coin-position">Y</span></div>
                                         </div>
                                     </div>
-                                    <div className="coin-text col-8" id="bronzeCoin">0</div>
+                                    <div className="coin-text col-8" id="bronzeCoin">{bronze}</div>
                                 </div>
                             </div>
                             {/* <!-- secondary currency --> */}

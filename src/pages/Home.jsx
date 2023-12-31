@@ -7,6 +7,7 @@ import { useState } from "react";
 const Home = (props) => {
     const [game, setGame] = useState('idle');
     const [sound, setSound] = useState(false);
+    const [varProps,setVarProps] = useState(props);
     return (
         <main className="main" id="main">
             {/* <!-- aligns the game area with the idle bar --> */}
@@ -17,7 +18,7 @@ const Home = (props) => {
                         <div className="game-area-div col-12">
                             <div className="game-area" id="gameArea">
                                 <Routes>
-                                    <Route path='/' element={<IdleGame props={props} />} />
+                                    <Route path='/' element={<IdleGame props={varProps} />} />
                                 </Routes>
                             </div>
                         </div>
