@@ -245,15 +245,15 @@ body{
 .idle-upgradeCost-button{
   display: inline;
   margin: 0;
+  padding: 0px 35px;
   margin-left: 35px;
   text-align: left;
   font-size: 18px;
   font-weight: 700;
-  padding: 3px;
-  background-color: black;
+  background-color: darkred;
   color: white;
   user-select: none;
-  /* border: 2px solid black; */
+  border: 2px solid black;
 }
 
 .click-upgrade-button{

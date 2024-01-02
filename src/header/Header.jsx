@@ -1,3 +1,4 @@
+import IdleBar from "../data/idleBar";
 import { useState } from "react";
 const Header = (props) => {
   const [bronze, setBronze] = useState(props.bronze);

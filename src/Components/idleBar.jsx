@@ -1,11 +1,4 @@
-import { useState } from "react";
-
 const IdleBar = (props) => {
-    // idle interval auto increase currency
-    const [currency, setCurrency] = useState(props.currency);
-
-    const [idleAmountCost, setIdleAmountCost] = useState(1);
-
     // will need to find a balance with the cost for the amount earned increasing the amount available per upgradeCost later on
     // const [idleAmount, setIdleAmount] = useState(1);
     // Will need to find a balanced cost calculation that isn't to low early on and not to high later on
@@ -19,19 +12,6 @@ const IdleBar = (props) => {
     // number of workers
     // const [workerCount, setWorkerCount] = useState(1);
 
-
-    const upgradeCost = () => {
-        if (currency >= idleAmountCost) {
-            setCurrency((prev) => prev - idleAmountCost);
-            if (idleAmountCost <= 10) {
-                setIdleAmountCost((prev) => prev + 4);
-            } else {
-                setIdleAmountCost((prev) => prev * 2);
-            }
-        };
-        props.idleAmount + 1;
-    };
-
     return (
         <div className='idle-group'>
             <div className="idle-bar-div" id="idleBarDiv">
@@ -39,15 +19,16 @@ const IdleBar = (props) => {
                 <div className="idle-bar">
                     <div className="idle-progress" id="idleProgress">
                     </div>
-                    <p className="idle-bar-amount" id="idleBarPercent">{currency}</p>
+                    <p className="idle-bar-amount" id="idleBarPercent">{props.currency}</p>
                 </div>
             </div>
             <div className="cost" id="idleAmountCostDisplay">
                 <div className="coin-container">
-                    <div className="bronze-coin-border coin-border">
-                        <div className="bronze-coin coin-img"><span className="coin-position">B</span></div>
-                        <input type="button" onClick={upgradeCost} className="btn idle-upgradeCost-button" value={idleAmountCost} />
-                    </div>
+                    {/* <div className="bronze-coin-border coin-border">
+                        <div className="bronze-coin coin-img"><span className="coin-position">B</span></div> */}
+                        <div>{props.name} Cost:</div>
+                        <input type="button" onClick={props.onClick} className="btn idle-upgradeCost-button" value={props.cost} />
+                    {/* </div> */}
                 </div>
             </div>
         </div>

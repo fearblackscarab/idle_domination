@@ -6,7 +6,7 @@ const IdleGame = (props) => {
     
     return (
         <div>
-            <header className="character-speak" id="characterSpeak">Welcome Mortal</header>
+            <h2 className="character-speak" id="characterSpeak">Welcome Mortal</h2>
 
             <IdleBar name='worker' currency={props.props.bronze} idleAmount={idleAmount}/>
 
