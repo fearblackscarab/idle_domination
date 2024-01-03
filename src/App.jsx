@@ -8,175 +8,208 @@ import './App.css';
 import IdleBar from './Components/idleBar';
 
 function App(props) {
-    // bronze 
-    let bronze = 1
-    const [bronzeCurrency, setBronzeCurrency] = useState(bronze);
-    let bronzeCost = 1
-    const [bronzeCurrentCost, setBronzeCurrentCost] = useState(bronzeCost);
-    let bronzeEarn = 1
-    const [bronzeCurrentEarn, setBronzeCurrentEarn] = useState(bronzeEarn);
+    // Demon Ranks
+    //Mizunoe (壬), Kanoto( 辛), Kanoe (庚), Tsuchinoto (己), Tsuchinoe (戊), Hinoto (丁), Hinoe(丙), Kinoto (乙), and Kinoe (甲).
+    // currencys?
+    // meat
+    // coin
+    // gems
+    // units/underlings
 
-    const bronzeUpgrade = () => {
-        if (bronzeCurrency >= bronzeCurrentCost) {
-            setBronzeCurrency((prev) => prev - bronzeCurrentCost);
-            if (bronzeCurrentCost <= 10) {
-                setBronzeCurrentCost((prev) => prev + 4);
+
+    // bars
+    // NOTE: Uppercase names
+
+    // mizunoe 
+    let mizunoe = 1
+    const [mizunoeCurrency, setMizunoeCurrency] = useState(mizunoe);
+    let mizunoeCost = 1
+    const [mizunoeCurrentCost, setMizunoeCurrentCost] = useState(mizunoeCost);
+    let mizunoeEarn = 1
+    const [mizunoeCurrentEarn, setMizunoeCurrentEarn] = useState(mizunoeEarn);
+
+    const mizunoeUpgrade = () => {
+        if (mizunoeCurrency >= mizunoeCurrentCost) {
+            setMizunoeCurrency((prev) => prev - mizunoeCurrentCost);
+            if (mizunoeCurrentCost <= 10) {
+                setMizunoeCurrentCost((prev) => prev + 4);
             } else {
-                setBronzeCurrentCost((prev) => prev * 2 + 4);
+                setMizunoeCurrentCost((prev) => prev * 2 + 4);
             }
-            setBronzeCurrentEarn((prev) => prev + 1);
+            setMizunoeCurrentEarn((prev) => prev + 1);
         };
     };
 
-    //silver
-    let silver = 1
-    const [silverCurrency, setSilverCurrency] = useState(silver);
-    let silverCost = 1
-    const [silverCurrentCost, setSilverCurrentCost] = useState(silverCost);
-    let silverEarn = 1
-    const [silverCurrentEarn, setSilverCurrentEarn] = useState(silverEarn);
+    //kanoto
+    let kanoto = 0
+    const [kanotoCurrency, setKanotoCurrency] = useState(kanoto);
+    let kanotoCost = 1
+    const [kanotoCurrentCost, setKanotoCurrentCost] = useState(kanotoCost);
+    let kanotoEarn = 0
+    const [kanotoCurrentEarn, setKanotoCurrentEarn] = useState(kanotoEarn);
 
-    const silverUpgrade = () => {
-        if (silverCurrency >= silverCurrentCost) {
-            setSilverCurrency((prev) => prev - silverCurrentCost);
-            if (silverCurrentCost <= 10) {
-                setSilverCurrentCost((prev) => prev + 4);
+    const kanotoUpgrade = () => {
+        if (kanotoCurrency >= kanotoCurrentCost) {
+            setKanotoCurrency((prev) => prev - kanotoCurrentCost);
+            if (kanotoCurrentCost <= 10) {
+                setKanotoCurrentCost((prev) => prev + 4);
             } else {
-                setSilverCurrentCost((prev) => prev * 2 + 4);
+                setKanotoCurrentCost((prev) => prev * 2 + 4);
             }
-            setSilverCurrentEarn((prev) => prev + 1);
+            setKanotoCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // gold
+    // kanoe
 
-    let gold = 1
-    const [goldCurrency, setGoldCurrency] = useState(gold);
-    let goldCost = 1
-    const [goldCurrentCost, setGoldCurrentCost] = useState(goldCost);
-    let goldEarn = 1
-    const [goldCurrentEarn, setGoldCurrentEarn] = useState(goldEarn);
+    let kanoe = 0
+    const [kanoeCurrency, setKanoeCurrency] = useState(kanoe);
+    let kanoeCost = 1
+    const [kanoeCurrentCost, setKanoeCurrentCost] = useState(kanoeCost);
+    let kanoeEarn = 0
+    const [kanoeCurrentEarn, setKanoeCurrentEarn] = useState(kanoeEarn);
 
-    const goldUpgrade = () => {
-        if (goldCurrency >= goldCurrentCost) {
-            setGoldCurrency((prev) => prev - goldCurrentCost);
-            if (goldCurrentCost <= 10) {
-                setGoldCurrentCost((prev) => prev + 4);
+    const kanoeUpgrade = () => {
+        if (kanoeCurrency >= kanoeCurrentCost) {
+            setKanoeCurrency((prev) => prev - kanoeCurrentCost);
+            if (kanoeCurrentCost <= 10) {
+                setKanoeCurrentCost((prev) => prev + 4);
             } else {
-                setGoldCurrentCost((prev) => prev * 2 + 4);
+                setKanoeCurrentCost((prev) => prev * 2 + 4);
             }
-            setGoldCurrentEarn((prev) => prev + 1);
+            setKanoeCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // platinum
+    // tsuchinoto
 
-    let platinum = 1
-    const [platinumCurrency, setPlatinumCurrency] = useState(platinum);
-    let platinumCost = 1
-    const [platinumCurrentCost, setPlatinumCurrentCost] = useState(platinumCost);
-    let platinumEarn = 1
-    const [platinumCurrentEarn, setPlatinumCurrentEarn] = useState(platinumEarn);
+    let tsuchinoto = 0
+    const [tsuchinotoCurrency, setTsuchinotoCurrency] = useState(tsuchinoto);
+    let tsuchinotoCost = 1
+    const [tsuchinotoCurrentCost, setTsuchinotoCurrentCost] = useState(tsuchinotoCost);
+    let tsuchinotoEarn = 0
+    const [tsuchinotoCurrentEarn, setTsuchinotoCurrentEarn] = useState(tsuchinotoEarn);
 
-    const platinumUpgrade = () => {
-        if (platinumCurrency >= platinumCurrentCost) {
-            setPlatinumCurrency((prev) => prev - platinumCurrentCost);
-            if (platinumCurrentCost <= 10) {
-                setPlatinumCurrentCost((prev) => prev + 4);
+    const tsuchinotoUpgrade = () => {
+        if (tsuchinotoCurrency >= tsuchinotoCurrentCost) {
+            setTsuchinotoCurrency((prev) => prev - tsuchinotoCurrentCost);
+            if (tsuchinotoCurrentCost <= 10) {
+                setTsuchinotoCurrentCost((prev) => prev + 4);
             } else {
-                setPlatinumCurrentCost((prev) => prev * 2 + 4);
+                setTsuchinotoCurrentCost((prev) => prev * 2 + 4);
             }
-            setPlatinumCurrentEarn((prev) => prev + 1);
+            setTsuchinotoCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // saphire
+    // tsuchinoe
 
-    let saphire = 1
-    const [saphireCurrency, setSaphireCurrency] = useState(saphire);
-    let saphireCost = 1
-    const [saphireCurrentCost, setSaphireCurrentCost] = useState(saphireCost);
-    let saphireEarn = 1
-    const [saphireCurrentEarn, setSaphireCurrentEarn] = useState(saphireEarn);
+    let tsuchinoe = 0
+    const [tsuchinoeCurrency, setTsuchinoeCurrency] = useState(tsuchinoe);
+    let tsuchinoeCost = 1
+    const [tsuchinoeCurrentCost, setTsuchinoeCurrentCost] = useState(tsuchinoeCost);
+    let tsuchinoeEarn = 0
+    const [tsuchinoeCurrentEarn, setTsuchinoeCurrentEarn] = useState(tsuchinoeEarn);
 
-    const saphireUpgrade = () => {
-        if (saphireCurrency >= saphireCurrentCost) {
-            setSaphireCurrency((prev) => prev - saphireCurrentCost);
-            if (saphireCurrentCost <= 10) {
-                setSaphireCurrentCost((prev) => prev + 4);
+    const tsuchinoeUpgrade = () => {
+        if (tsuchinoeCurrency >= tsuchinoeCurrentCost) {
+            setTsuchinoeCurrency((prev) => prev - tsuchinoeCurrentCost);
+            if (tsuchinoeCurrentCost <= 10) {
+                setTsuchinoeCurrentCost((prev) => prev + 4);
             } else {
-                setSaphireCurrentCost((prev) => prev * 2 + 4);
+                setTsuchinoeCurrentCost((prev) => prev * 2 + 4);
             }
-            setSaphireCurrentEarn((prev) => prev + 1);
+            setTsuchinoeCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // emerald
+    // hinoto
 
-    let emerald = 1
-    const [emeraldCurrency, setEmeraldCurrency] = useState(emerald);
-    let emeraldCost = 1
-    const [emeraldCurrentCost, setEmeraldCurrentCost] = useState(emeraldCost);
-    let emeraldEarn = 1
-    const [emeraldCurrentEarn, setEmeraldCurrentEarn] = useState(emeraldEarn);
+    let hinoto = 0
+    const [hinotoCurrency, setHinotoCurrency] = useState(hinoto);
+    let hinotoCost = 1
+    const [hinotoCurrentCost, setHinotoCurrentCost] = useState(hinotoCost);
+    let hinotoEarn = 0
+    const [hinotoCurrentEarn, setHinotoCurrentEarn] = useState(hinotoEarn);
 
-    const emeraldUpgrade = () => {
-        if (emeraldCurrency >= emeraldCurrentCost) {
-            setEmeraldCurrency((prev) => prev - emeraldCurrentCost);
-            if (emeraldCurrentCost <= 10) {
-                setEmeraldCurrentCost((prev) => prev + 4);
+    const hinotoUpgrade = () => {
+        if (hinotoCurrency >= hinotoCurrentCost) {
+            setHinotoCurrency((prev) => prev - hinotoCurrentCost);
+            if (hinotoCurrentCost <= 10) {
+                setHinotoCurrentCost((prev) => prev + 4);
             } else {
-                setEmeraldCurrentCost((prev) => prev * 2 + 4);
+                setHinotoCurrentCost((prev) => prev * 2 + 4);
             }
-            setEmeraldCurrentEarn((prev) => prev + 1);
+            setHinotoCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // ruby
+    // hinoe
 
-    let ruby = 1
-    const [rubyCurrency, setRubyCurrency] = useState(ruby);
-    let rubyCost = 1
-    const [rubyCurrentCost, setRubyCurrentCost] = useState(rubyCost);
-    let rubyEarn = 1
-    const [rubyCurrentEarn, setRubyCurrentEarn] = useState(rubyEarn);
+    let hinoe = 0
+    const [hinoeCurrency, setHinoeCurrency] = useState(hinoe);
+    let hinoeCost = 1
+    const [hinoeCurrentCost, setHinoeCurrentCost] = useState(hinoeCost);
+    let hinoeEarn = 0
+    const [hinoeCurrentEarn, setHinoeCurrentEarn] = useState(hinoeEarn);
 
-    const rubyUpgrade = () => {
-        if (rubyCurrency >= rubyCurrentCost) {
-            setRubyCurrency((prev) => prev - rubyCurrentCost);
-            if (rubyCurrentCost <= 10) {
-                setRubyCurrentCost((prev) => prev + 4);
+    const hinoeUpgrade = () => {
+        if (hinoeCurrency >= hinoeCurrentCost) {
+            setHinoeCurrency((prev) => prev - hinoeCurrentCost);
+            if (hinoeCurrentCost <= 10) {
+                setHinoeCurrentCost((prev) => prev + 4);
             } else {
-                setRubyCurrentCost((prev) => prev * 2 + 4);
+                setHinoeCurrentCost((prev) => prev * 2 + 4);
             }
-            setRubyCurrentEarn((prev) => prev + 1);
+            setHinoeCurrentEarn((prev) => prev + 1);
         };
     };
 
-    // diamond 
+    // kinoto
 
-    let diamond = 1
-    const [diamondCurrency, setDiamondCurrency] = useState(diamond);
-    let diamondCost = 1
-    const [diamondCurrentCost, setDiamondCurrentCost] = useState(diamondCost);
-    let diamondEarn = 1
-    const [diamondCurrentEarn, setDiamondCurrentEarn] = useState(diamondEarn);
+    let kinoto = 0
+    const [kinotoCurrency, setKinotoCurrency] = useState(kinoto);
+    let kinotoCost = 1
+    const [kinotoCurrentCost, setKinotoCurrentCost] = useState(kinotoCost);
+    let kinotoEarn = 0
+    const [kinotoCurrentEarn, setKinotoCurrentEarn] = useState(kinotoEarn);
 
-    const diamondUpgrade = () => {
-        if (diamondCurrency >= diamondCurrentCost) {
-            setDiamondCurrency((prev) => prev - diamondCurrentCost);
-            if (diamondCurrentCost <= 10) {
-                setDiamondCurrentCost((prev) => prev + 4);
+    const kinotoUpgrade = () => {
+        if (kinotoCurrency >= kinotoCurrentCost) {
+            setKinotoCurrency((prev) => prev - kinotoCurrentCost);
+            if (kinotoCurrentCost <= 10) {
+                setKinotoCurrentCost((prev) => prev + 4);
             } else {
-                setDiamondCurrentCost((prev) => prev * 2 + 4);
+                setKinotoCurrentCost((prev) => prev * 2 + 4);
             }
-            setDiamondCurrentEarn((prev) => prev + 1);
+            setKinotoCurrentEarn((prev) => prev + 1);
         };
     };
 
+    // kinoe
+
+    let kinoe = 0
+    const [kinoeCurrency, setKinoeCurrency] = useState(kinoe);
+    let kinoeCost = 1
+    const [kinoeCurrentCost, setKinoeCurrentCost] = useState(kinoeCost);
+    let kinoeEarn = 0
+    const [kinoeCurrentEarn, setKinoeCurrentEarn] = useState(kinoeEarn);
+
+    const kinoeUpgrade = () => {
+        if (kinoeCurrency >= kinoeCurrentCost) {
+            setKinoeCurrency((prev) => prev - kinoeCurrentCost);
+            if (kinoeCurrentCost <= 10) {
+                setKinoeCurrentCost((prev) => prev + 4);
+            } else {
+                setKinoeCurrentCost((prev) => prev * 2 + 4);
+            }
+            setKinoeCurrentEarn((prev) => prev + 1);
+        };
+    };
+
+    // end bars
     return (
         <div>
-            {/* <Header bronze={bronzeCurrency} silver={silverCurrency} gold={goldCurrency} platinum={platinumCurrency} saphire={saphireCurrency} emerald={emeraldCurrency} ruby={rubyCurrency} diamond={diamondCurrency} /> */}
             <header className="header" id="header">
                 <div className="container">
                     <div className="row">
@@ -191,7 +224,7 @@ function App(props) {
                                                 <div className="bronze-coin coin-img"><span className="coin-position">Y</span></div>
                                             </div>
                                         </div>
-                                        <div className="coin-text col-8" id="bronzeCoin">{bronzeCurrency}</div>
+                                        <div className="coin-text col-8" id="bronzeCoin">{mizunoeCurrency}</div>
                                     </div>
                                 </div>
                                 {/* <!-- secondary currency --> */}
@@ -250,7 +283,6 @@ function App(props) {
                     </div>
                 </div>
             </header>
-            {/* <Home bronze={bronzeCurrency} silver={silverCurrency} gold={goldCurrency} platinum={platinumCurrency} saphire={saphireCurrency} emerald={emeraldCurrency} ruby={rubyCurrency} diamond={diamondCurrency} /> */}
             <main className="main" id="main">
                 {/* <!-- aligns the game area with the idle bar --> */}
                 <div className="game-align">
@@ -262,15 +294,23 @@ function App(props) {
                                     <div>
                                         <h2 className="character-speak" id="characterSpeak">Welcome Mortal</h2>
 
-                                        {/* <IdleBar name='worker' currency={props.props.bronze} idleAmount={idleAmount} /> */}
-                                        <IdleBar name='bronze' currency={bronzeCurrentEarn} onClick={bronzeUpgrade} cost={bronzeCurrentCost} />
-                                        <IdleBar name='silver' currency={silverCurrentEarn} onClick={silverUpgrade} cost={silverCurrentCost} />
-                                        <IdleBar name='gold' currency={goldCurrentEarn} onClick={goldUpgrade} cost={goldCurrentCost} />
-                                        <IdleBar name='platinum' currency={platinumCurrentEarn} onClick={platinumUpgrade} cost={platinumCurrentCost} />
-                                        <IdleBar name='saphire' currency={saphireCurrentEarn} onClick={saphireUpgrade} cost={saphireCurrentCost} />
-                                        <IdleBar name='emerald' currency={emeraldCurrentEarn} onClick={emeraldUpgrade} cost={emeraldCurrentCost} />
-                                        <IdleBar name='ruby' currency={rubyCurrentEarn} onClick={rubyUpgrade} cost={rubyCurrentCost} />
-                                        <IdleBar name='diamond' currency={diamondCurrentEarn} onClick={diamondUpgrade} cost={diamondCurrentCost} />
+                                        <IdleBar name='Mizunoe' currency={mizunoeCurrentEarn} onClick={mizunoeUpgrade} cost={mizunoeCurrentCost} />
+
+                                        <IdleBar name='Kanoto' currency={kanotoCurrentEarn} onClick={kanotoUpgrade} cost={kanotoCurrentCost} />
+
+                                        <IdleBar name='Kanoe' currency={kanoeCurrentEarn} onClick={kanoeUpgrade} cost={kanoeCurrentCost} />
+
+                                        <IdleBar name='Tsuchinoto' currency={tsuchinotoCurrentEarn} onClick={tsuchinotoUpgrade} cost={tsuchinotoCurrentCost} />
+
+                                        <IdleBar name='Tsuchinoe' currency={tsuchinoeCurrentEarn} onClick={tsuchinoeUpgrade} cost={tsuchinoeCurrentCost} />
+
+                                        <IdleBar name='Hinoto' currency={hinotoCurrentEarn} onClick={hinotoUpgrade} cost={hinotoCurrentCost} />
+
+                                        <IdleBar name='Hinoe' currency={hinoeCurrentEarn} onClick={hinoeUpgrade} cost={hinoeCurrentCost} />
+
+                                        <IdleBar name='Kinoto' currency={kinotoCurrentEarn} onClick={kinotoUpgrade} cost={kinotoCurrentCost} />
+
+                                        <IdleBar name='Kinoe' currency={kinoeCurrentEarn} onClick={kinoeUpgrade} cost={kinoeCurrentCost} />
 
                                         <p className="upgrade-title">New Feature</p>
                                         <p className="upgrade-text" id="nextUnlockDisplay">{props.nextUnlock}</p>
