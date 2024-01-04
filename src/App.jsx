@@ -8,20 +8,19 @@ import './App.css';
 import IdleBar from './Components/idleBar';
 
 function App(props) {
-    // Demon Ranks
-    //Mizunoe (壬), Kanoto( 辛), Kanoe (庚), Tsuchinoto (己), Tsuchinoe (戊), Hinoto (丁), Hinoe(丙), Kinoto (乙), and Kinoe (甲).
     // currencys?
     // meat
     // coin
     // gems
     // units/underlings
+    // send on hunts?
 
-
-    // bars
-    // NOTE: Uppercase names
+// bars
+// Demon Ranks
+    //Mizunoe (壬), Kanoto( 辛), Kanoe (庚), Tsuchinoto (己), Tsuchinoe (戊), Hinoto (丁), Hinoe(丙), Kinoto (乙), and Kinoe (甲).
 
     // mizunoe 
-    let mizunoe = 1
+    let mizunoe = 100
     const [mizunoeCurrency, setMizunoeCurrency] = useState(mizunoe);
     let mizunoeCost = 1
     const [mizunoeCurrentCost, setMizunoeCurrentCost] = useState(mizunoeCost);
@@ -32,7 +31,7 @@ function App(props) {
         if (mizunoeCurrency >= mizunoeCurrentCost) {
             setMizunoeCurrency((prev) => prev - mizunoeCurrentCost);
             if (mizunoeCurrentCost <= 10) {
-                setMizunoeCurrentCost((prev) => prev + 4);
+                setMizunoeCurrentCost((prev) => prev + 1);
             } else {
                 setMizunoeCurrentCost((prev) => prev * 2 + 4);
             }
@@ -41,18 +40,18 @@ function App(props) {
     };
 
     //kanoto
-    let kanoto = 0
-    const [kanotoCurrency, setKanotoCurrency] = useState(kanoto);
+    // let kanoto = 0
+    // const [kanotoCurrency, setKanotoCurrency] = useState(mizunoeEarn);
     let kanotoCost = 1
     const [kanotoCurrentCost, setKanotoCurrentCost] = useState(kanotoCost);
     let kanotoEarn = 0
     const [kanotoCurrentEarn, setKanotoCurrentEarn] = useState(kanotoEarn);
 
     const kanotoUpgrade = () => {
-        if (kanotoCurrency >= kanotoCurrentCost) {
-            setKanotoCurrency((prev) => prev - kanotoCurrentCost);
+        if (mizunoeCurrentEarn >= kanotoCurrentCost) {
+            setMizunoeCurrentEarn((prev) => prev - kanotoCurrentCost);
             if (kanotoCurrentCost <= 10) {
-                setKanotoCurrentCost((prev) => prev + 4);
+                setKanotoCurrentCost((prev) => prev + 1);
             } else {
                 setKanotoCurrentCost((prev) => prev * 2 + 4);
             }
@@ -208,6 +207,13 @@ function App(props) {
     };
 
     // end bars
+
+    // idle bar progress with time delay
+    const barProgress = () =>{
+        
+
+    }
+
     return (
         <div>
             <header className="header" id="header">

@@ -291,29 +291,32 @@ body{
 }
 
 .idle-bar{
-  /* position: relative; */
-  background-color: #7f0404;
+  position: relative;
+  background-color: #0C3C11;
   margin: 0;
   padding: 0;
   width: 30%;
   height: 30px;
   border-radius: 5px;
+  z-index: 0;
 }
 
-.idle-progress{
+/* .idle-progress{
   position: absolute;
   background-color: darkred;
   width: 100%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
+} */
 
 .idle-bar-amount{
+  position: relative;
   text-align: center;
   margin: 0;
   color: white;
   padding: 2px 0;
   font-weight: 700;
+  z-index: 2;
   /* transform: rotate(-90deg); */
 }
 
