@@ -1,6 +1,6 @@
 // import {Routes,Route} from 'react-router-dom'
 import { useState } from 'react';
-// import Header from './header/Header';
+import Data from './Data';
 // import Home from './pages/Home';
 import GameFunction from './function/Game';
 import Footer from './footer/footer';
@@ -15,13 +15,108 @@ function App(props) {
     // units/underlings
     // send on hunts?
 
-// bars
-// Demon Ranks
+    // bars
+
+    let idleWidth = 0
+    let style = {
+        position: 'absolute',
+        backgroundColor: 'darkred',
+        height: '100%',
+        width: `${idleWidth}%`,
+        borderRadius: '5px',
+        zIndex: '1'
+    }
+
+    const [idleStyle, setIdleStyle] = useState(style)
+
+    const idleGains = (currency, speed, value) => {
+        if (currency > 0) {
+            setTimeout(() => {
+                if (idleWidth < 100) {
+                    //progress bar
+                    idleWidth++
+                    // console.log(idleWidth)
+
+                } else if (idleWidth == 100) {
+                    // restart Progress
+                    idleWidth = 0
+                    currency += value
+                    // console.log('100')
+
+                } else {
+                    console.log(`error ${idleWidth}`)
+                }
+                setIdleStyle({ ...idleStyle, width: `${idleWidth}%` })
+                return idleGains(currency, speed, value)
+            }, speed);
+        }
+    }
+
+    // Demon Ranks
     //Mizunoe (壬), Kanoto( 辛), Kanoe (庚), Tsuchinoto (己), Tsuchinoe (戊), Hinoto (丁), Hinoe(丙), Kinoto (乙), and Kinoe (甲).
+    const [rank,setRank] = useState([{
+        currency:{
+            souls: 10 // children
+        },
+        mizunoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '壬'
+        },
+        Kanoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '辛'
+        },
+        Kanoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '庚'
+        },
+        Tsuchinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '己'
+        },
+        Tsuchinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '戊'
+        },
+        Hinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '丁'
+        },
+        Hinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '丙'
+        },
+        Kinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '乙'
+        },
+        Kinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            symbol: '甲'
+        }}])
+
+    
 
     // mizunoe 
-    let mizunoe = 100
-    const [mizunoeCurrency, setMizunoeCurrency] = useState(mizunoe);
+    const [mizunoeCurrency, setMizunoeCurrency] = useState(rank[0].currency.souls);
     let mizunoeCost = 1
     const [mizunoeCurrentCost, setMizunoeCurrentCost] = useState(mizunoeCost);
     let mizunoeEarn = 1
@@ -61,16 +156,16 @@ function App(props) {
 
     // kanoe
 
-    let kanoe = 0
-    const [kanoeCurrency, setKanoeCurrency] = useState(kanoe);
+    // let kanoe = 0
+    // const [kanoeCurrency, setKanoeCurrency] = useState(kanoe);
     let kanoeCost = 1
     const [kanoeCurrentCost, setKanoeCurrentCost] = useState(kanoeCost);
     let kanoeEarn = 0
     const [kanoeCurrentEarn, setKanoeCurrentEarn] = useState(kanoeEarn);
 
     const kanoeUpgrade = () => {
-        if (kanoeCurrency >= kanoeCurrentCost) {
-            setKanoeCurrency((prev) => prev - kanoeCurrentCost);
+        if (kanotoCurrentEarn >= kanoeCurrentCost) {
+            setKanotoCurrentEarn((prev) => prev - kanoeCurrentCost);
             if (kanoeCurrentCost <= 10) {
                 setKanoeCurrentCost((prev) => prev + 4);
             } else {
@@ -82,16 +177,16 @@ function App(props) {
 
     // tsuchinoto
 
-    let tsuchinoto = 0
-    const [tsuchinotoCurrency, setTsuchinotoCurrency] = useState(tsuchinoto);
+    // let tsuchinoto = 0
+    // const [tsuchinotoCurrency, setTsuchinotoCurrency] = useState(tsuchinoto);
     let tsuchinotoCost = 1
     const [tsuchinotoCurrentCost, setTsuchinotoCurrentCost] = useState(tsuchinotoCost);
     let tsuchinotoEarn = 0
     const [tsuchinotoCurrentEarn, setTsuchinotoCurrentEarn] = useState(tsuchinotoEarn);
 
     const tsuchinotoUpgrade = () => {
-        if (tsuchinotoCurrency >= tsuchinotoCurrentCost) {
-            setTsuchinotoCurrency((prev) => prev - tsuchinotoCurrentCost);
+        if (kanoeCurrentEarn >= tsuchinotoCurrentCost) {
+            setKanoeCurrentEarn((prev) => prev - tsuchinotoCurrentCost);
             if (tsuchinotoCurrentCost <= 10) {
                 setTsuchinotoCurrentCost((prev) => prev + 4);
             } else {
@@ -103,16 +198,16 @@ function App(props) {
 
     // tsuchinoe
 
-    let tsuchinoe = 0
-    const [tsuchinoeCurrency, setTsuchinoeCurrency] = useState(tsuchinoe);
+    // let tsuchinoe = 0
+    // const [tsuchinoeCurrency, setTsuchinoeCurrency] = useState(tsuchinoe);
     let tsuchinoeCost = 1
     const [tsuchinoeCurrentCost, setTsuchinoeCurrentCost] = useState(tsuchinoeCost);
     let tsuchinoeEarn = 0
     const [tsuchinoeCurrentEarn, setTsuchinoeCurrentEarn] = useState(tsuchinoeEarn);
 
     const tsuchinoeUpgrade = () => {
-        if (tsuchinoeCurrency >= tsuchinoeCurrentCost) {
-            setTsuchinoeCurrency((prev) => prev - tsuchinoeCurrentCost);
+        if (tsuchinotoCurrentEarn >= tsuchinoeCurrentCost) {
+            setTsuchinotoCurrentEarn((prev) => prev - tsuchinoeCurrentCost);
             if (tsuchinoeCurrentCost <= 10) {
                 setTsuchinoeCurrentCost((prev) => prev + 4);
             } else {
@@ -124,16 +219,16 @@ function App(props) {
 
     // hinoto
 
-    let hinoto = 0
-    const [hinotoCurrency, setHinotoCurrency] = useState(hinoto);
+    // let hinoto = 0
+    // const [hinotoCurrency, setHinotoCurrency] = useState(hinoto);
     let hinotoCost = 1
     const [hinotoCurrentCost, setHinotoCurrentCost] = useState(hinotoCost);
     let hinotoEarn = 0
     const [hinotoCurrentEarn, setHinotoCurrentEarn] = useState(hinotoEarn);
 
     const hinotoUpgrade = () => {
-        if (hinotoCurrency >= hinotoCurrentCost) {
-            setHinotoCurrency((prev) => prev - hinotoCurrentCost);
+        if (tsuchinoeCurrentEarn >= hinotoCurrentCost) {
+            setTsuchinoeCurrentEarn((prev) => prev - hinotoCurrentCost);
             if (hinotoCurrentCost <= 10) {
                 setHinotoCurrentCost((prev) => prev + 4);
             } else {
@@ -145,16 +240,16 @@ function App(props) {
 
     // hinoe
 
-    let hinoe = 0
-    const [hinoeCurrency, setHinoeCurrency] = useState(hinoe);
+    // let hinoe = 0
+    // const [hinoeCurrency, setHinoeCurrency] = useState(hinoe);
     let hinoeCost = 1
     const [hinoeCurrentCost, setHinoeCurrentCost] = useState(hinoeCost);
     let hinoeEarn = 0
     const [hinoeCurrentEarn, setHinoeCurrentEarn] = useState(hinoeEarn);
 
     const hinoeUpgrade = () => {
-        if (hinoeCurrency >= hinoeCurrentCost) {
-            setHinoeCurrency((prev) => prev - hinoeCurrentCost);
+        if (hinotoCurrentEarn >= hinoeCurrentCost) {
+            setHinotoCurrentEarn((prev) => prev - hinoeCurrentCost);
             if (hinoeCurrentCost <= 10) {
                 setHinoeCurrentCost((prev) => prev + 4);
             } else {
@@ -166,16 +261,16 @@ function App(props) {
 
     // kinoto
 
-    let kinoto = 0
-    const [kinotoCurrency, setKinotoCurrency] = useState(kinoto);
+    // let kinoto = 0
+    // const [kinotoCurrency, setKinotoCurrency] = useState(kinoto);
     let kinotoCost = 1
     const [kinotoCurrentCost, setKinotoCurrentCost] = useState(kinotoCost);
     let kinotoEarn = 0
     const [kinotoCurrentEarn, setKinotoCurrentEarn] = useState(kinotoEarn);
 
     const kinotoUpgrade = () => {
-        if (kinotoCurrency >= kinotoCurrentCost) {
-            setKinotoCurrency((prev) => prev - kinotoCurrentCost);
+        if (hinoeCurrentEarn >= kinotoCurrentCost) {
+            setHinoeCurrentEarn((prev) => prev - kinotoCurrentCost);
             if (kinotoCurrentCost <= 10) {
                 setKinotoCurrentCost((prev) => prev + 4);
             } else {
@@ -187,16 +282,16 @@ function App(props) {
 
     // kinoe
 
-    let kinoe = 0
-    const [kinoeCurrency, setKinoeCurrency] = useState(kinoe);
+    // let kinoe = 0
+    // const [kinoeCurrency, setKinoeCurrency] = useState(kinoe);
     let kinoeCost = 1
     const [kinoeCurrentCost, setKinoeCurrentCost] = useState(kinoeCost);
     let kinoeEarn = 0
     const [kinoeCurrentEarn, setKinoeCurrentEarn] = useState(kinoeEarn);
 
     const kinoeUpgrade = () => {
-        if (kinoeCurrency >= kinoeCurrentCost) {
-            setKinoeCurrency((prev) => prev - kinoeCurrentCost);
+        if (kinotoCurrentEarn >= kinoeCurrentCost) {
+            setKinotoCurrentEarn((prev) => prev - kinoeCurrentCost);
             if (kinoeCurrentCost <= 10) {
                 setKinoeCurrentCost((prev) => prev + 4);
             } else {
@@ -209,8 +304,7 @@ function App(props) {
     // end bars
 
     // idle bar progress with time delay
-    const barProgress = () =>{
-        
+    const barProgress = () => {
 
     }
 
@@ -226,11 +320,12 @@ function App(props) {
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="coin-container col-4">
-                                            <div className="bronze-coin-border coin-border">
-                                                <div className="bronze-coin coin-img"><span className="coin-position">Y</span></div>
+                                            <div className="souls">
+                                            Souls:{mizunoeCurrency}
+                                                {/* <div className="bronze-coin coin-img"><span className="coin-position">Y</span></div> */}
                                             </div>
                                         </div>
-                                        <div className="coin-text col-8" id="bronzeCoin">{mizunoeCurrency}</div>
+                                        {/* <div className="coin-text col-8" id="bronzeCoin">{mizunoeCurrency}</div> */}
                                     </div>
                                 </div>
                                 {/* <!-- secondary currency --> */}
@@ -300,23 +395,23 @@ function App(props) {
                                     <div>
                                         <h2 className="character-speak" id="characterSpeak">Welcome Mortal</h2>
 
-                                        <IdleBar name='Mizunoe' currency={mizunoeCurrentEarn} onClick={mizunoeUpgrade} cost={mizunoeCurrentCost} />
+                                        <IdleBar name='Mizunoe' currency={mizunoeCurrentEarn} onClick={mizunoeUpgrade} cost={mizunoeCurrentCost} gain={idleGains()} gainCurrency={mizunoeCurrency} />
 
-                                        <IdleBar name='Kanoto' currency={kanotoCurrentEarn} onClick={kanotoUpgrade} cost={kanotoCurrentCost} />
+                                        <IdleBar name='Kanoto' currency={kanotoCurrentEarn} onClick={kanotoUpgrade} cost={kanotoCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Kanoe' currency={kanoeCurrentEarn} onClick={kanoeUpgrade} cost={kanoeCurrentCost} />
+                                        <IdleBar name='Kanoe' currency={kanoeCurrentEarn} onClick={kanoeUpgrade} cost={kanoeCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Tsuchinoto' currency={tsuchinotoCurrentEarn} onClick={tsuchinotoUpgrade} cost={tsuchinotoCurrentCost} />
+                                        <IdleBar name='Tsuchinoto' currency={tsuchinotoCurrentEarn} onClick={tsuchinotoUpgrade} cost={tsuchinotoCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Tsuchinoe' currency={tsuchinoeCurrentEarn} onClick={tsuchinoeUpgrade} cost={tsuchinoeCurrentCost} />
+                                        <IdleBar name='Tsuchinoe' currency={tsuchinoeCurrentEarn} onClick={tsuchinoeUpgrade} cost={tsuchinoeCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Hinoto' currency={hinotoCurrentEarn} onClick={hinotoUpgrade} cost={hinotoCurrentCost} />
+                                        <IdleBar name='Hinoto' currency={hinotoCurrentEarn} onClick={hinotoUpgrade} cost={hinotoCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Hinoe' currency={hinoeCurrentEarn} onClick={hinoeUpgrade} cost={hinoeCurrentCost} />
+                                        <IdleBar name='Hinoe' currency={hinoeCurrentEarn} onClick={hinoeUpgrade} cost={hinoeCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Kinoto' currency={kinotoCurrentEarn} onClick={kinotoUpgrade} cost={kinotoCurrentCost} />
+                                        <IdleBar name='Kinoto' currency={kinotoCurrentEarn} onClick={kinotoUpgrade} cost={kinotoCurrentCost} gain={idleGains()} />
 
-                                        <IdleBar name='Kinoe' currency={kinoeCurrentEarn} onClick={kinoeUpgrade} cost={kinoeCurrentCost} />
+                                        <IdleBar name='Kinoe' currency={kinoeCurrentEarn} onClick={kinoeUpgrade} cost={kinoeCurrentCost} gain={idleGains()} />
 
                                         <p className="upgrade-title">New Feature</p>
                                         <p className="upgrade-text" id="nextUnlockDisplay">{props.nextUnlock}</p>

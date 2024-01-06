@@ -12,36 +12,38 @@ const IdleBar = (props) => {
 
     // number of workers
     // const [workerCount, setWorkerCount] = useState(1);
-    let idleBarSpeed =25
-    let idleWidth = 100
+    let idleBarSpeed = 25
+    let idleWidth = 0
     let style = {
         position: 'absolute',
         backgroundColor: 'darkred',
         height: '100%',
         width: `${idleWidth}%`,
         borderRadius: '5px',
-        zIndex:'1'
+        zIndex: '1'
     }
     const [idleStyle, setIdleStyle] = useState(style)
     // const [idleProgressWidth, setIdleProgressWidth] = useState(idleWidth);
     const idleInterval = () => {
-        setTimeout(() => {
-            if (idleWidth < 100) {
-                // setIdleProgressWidth((prev) => prev + 1);
-                idleWidth++
-                // let idleProgressTop = (400 / 100) * (100 - idleProgressWidth);
-                // idleProgress.style.right = `${idleProgressTop}px`;
-                // idleBarPercent.innerHTML = `${idleProgressWidth}%`;
-                // console.log(idleProgressWidth);
-                console.log(idleWidth)
-            } else if (idleWidth == 100) {
-                // setIdleProgressWidth((prev) = 0)
-                idleWidth=0
-                console.log('100')
-            } else { console.log(`error ${idleProgressWidth}`) }
-            setIdleStyle({...idleStyle,width:`${idleWidth}%`})
-            return idleInterval()
-        }, idleBarSpeed);
+        if (props.currency > 0) {
+            setTimeout(() => {
+                if (idleWidth < 100) {
+                    //progress bar
+                    idleWidth++
+                    // console.log(idleWidth)
+
+                } else if (idleWidth == 100) {
+                    // restart Progress
+                    idleWidth = 0
+                    // console.log('100')
+
+                } else {
+                    console.log(`error ${idleWidth}`)
+                }
+                setIdleStyle({ ...idleStyle, width: `${idleWidth}%` })
+                return idleInterval()
+            }, idleBarSpeed);
+        }
     }
 
     window.addEventListener('load', e => {

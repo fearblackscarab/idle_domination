@@ -18,6 +18,15 @@ body{
 }
 
 /* currency */
+
+.souls{
+  position: relative;
+  margin: 10px 0;
+  top: 2px;
+  left: 2px;
+  font-family: 'Press Start 2P', cursive; 
+}
+
 .coin-border{
   position: relative;
   margin: 10px 0; 
