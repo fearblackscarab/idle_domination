@@ -1,18 +1,10 @@
 import { useState } from "react";
 const IdleBar = (props) => {
-    // will need to find a balance with the cost for the amount earned increasing the amount available per upgradeCost later on
-    // const [idleAmount, setIdleAmount] = useState(1);
-    // Will need to find a balanced cost calculation that isn't to low early on and not to high later on
 
-    // idle bar speed should use a numberic value between 1-10 and will have a check somewhere to decide the speed based on what the value currently is
-    // const [idleBarSpeed, setIdleBarSpeed] = useState(0);
+    //progress bar speed
+    let idleBarSpeed = 250
 
-    // Maxed output of worker, any further upgradeCosts increase in cost but add a new worker
-    // const [idleBarMaxed, setIdleBarMaxed] = useState(False);
-
-    // number of workers
-    // const [workerCount, setWorkerCount] = useState(1);
-    let idleBarSpeed = 25
+    //display defaults
     let idleWidth = 0
     let style = {
         position: 'absolute',
@@ -22,33 +14,15 @@ const IdleBar = (props) => {
         borderRadius: '5px',
         zIndex: '1'
     }
+
+    //display state
     const [idleStyle, setIdleStyle] = useState(style)
-    // const [idleProgressWidth, setIdleProgressWidth] = useState(idleWidth);
-    const idleInterval = () => {
-        if (props.currency > 0) {
-            setTimeout(() => {
-                if (idleWidth < 100) {
-                    //progress bar
-                    idleWidth++
-                    // console.log(idleWidth)
 
-                } else if (idleWidth == 100) {
-                    // restart Progress
-                    idleWidth = 0
-                    // console.log('100')
-
-                } else {
-                    console.log(`error ${idleWidth}`)
-                }
-                setIdleStyle({ ...idleStyle, width: `${idleWidth}%` })
-                return idleInterval()
-            }, idleBarSpeed);
-        }
-    }
-
+    // run on page load
     window.addEventListener('load', e => {
         e.preventDefault();;
-        idleInterval();
+        props.interval(props.currency,idleWidth,idleStyle,idleBarSpeed)
+        setIdleStyle(style)
     })
 
     return (
