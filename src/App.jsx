@@ -1,5 +1,5 @@
 // import {Routes,Route} from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Data from './Data';
 // import Home from './pages/Home';
 import GameFunction from './function/Game';
@@ -9,42 +9,169 @@ import IdleBar from './Components/idleBar';
 
 function App(props) {
 
-    // currencys?
-    // meat
-    // coin
-    // gems
-    // units/underlings
-    // send on hunts?
+    const [data, setData] = useState({
+        currency: {
+            souls: 10 // children
+        },
+        mizunoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 10,
+            symbol: '壬',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Kanoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '辛',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Kanoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '庚',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Tsuchinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '己',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Tsuchinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '戊',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Hinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '丁',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Hinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '丙',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Kinoto: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '乙',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        },
+        Kinoe: {
+            amount: 0,
+            value: 1,
+            cost: 1,
+            speed: 1000,
+            symbol: '甲',
+            width: 0,
+            style: {
+                position: 'absolute',
+                backgroundColor: 'darkred',
+                height: '100%',
+                width: `0%`,
+                borderRadius: '5px',
+                zIndex: '1'
+            },
+            progressStart: false
+        }
+    });
 
     // bars
-    const idleInterval = (currency,barWidth,style,speed) => {
-        setTimeout(() => {
-            if(currency > 0){
+    // let idleWidth = 0;
 
-                if (barWidth < 100) {
-                    //progress bar
-                    barWidth++
-                    console.log(barWidth)
-                    
-                } else if (barWidth >= 100) {
-                    //reset progress bar
-                    barWidth = 0
-                    console.log(barWidth)
-                    
-                } else {
-                    
-                    //error
-                    console.log(`error ${barWidth}`)
-                }
-                
-                //display update
-                style = { ...style, width: `${barWidth}%` }
-                console.log(style)
-                
-                return idleInterval(currency,barWidth,style,speed)
-            }
-        }, speed);
-    }
+    // const [idleStyle, setIdleStyle] = useState(data.mizunoe.style);
 
     // let idleWidth = 0
     // let style = {
@@ -83,65 +210,7 @@ function App(props) {
 
     // Demon Ranks
     //Mizunoe (壬), Kanoto( 辛), Kanoe (庚), Tsuchinoto (己), Tsuchinoe (戊), Hinoto (丁), Hinoe(丙), Kinoto (乙), and Kinoe (甲).
-    const [data, setData] = useState({
-        currency: {
-            souls: 10 // children
-        },
-        mizunoe: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '壬'
-        },
-        Kanoto: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '辛'
-        },
-        Kanoe: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '庚'
-        },
-        Tsuchinoto: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '己'
-        },
-        Tsuchinoe: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '戊'
-        },
-        Hinoto: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '丁'
-        },
-        Hinoe: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '丙'
-        },
-        Kinoto: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '乙'
-        },
-        Kinoe: {
-            amount: 0,
-            value: 1,
-            cost: 1,
-            symbol: '甲'
-        }
-    })
+
 
     // mizunoe 
     // // const [mizunoeCurrency, setMizunoeCurrency] = useState(rank[0].currency.souls);
@@ -150,7 +219,54 @@ function App(props) {
     // let mizunoeEarn = 1
     // const [mizunoeCurrentEarn, setMizunoeCurrentEarn] = useState(mizunoeEarn);
 
-    const mizunoeUpgrade = () => {
+    useEffect(() => {
+        //Implementing the setInterval method
+        if (data.mizunoe.progressStart) {
+            let rank = data
+            const mizunoeInterval = setInterval(() => {
+
+                let idleWidth = rank.mizunoe.width
+                if (idleWidth < 100) {
+                    //progress bar
+                    idleWidth++
+                    // console.log(idleWidth)
+
+                } else if (idleWidth >= 100) {
+                    //reset progress bar
+                    idleWidth = 0
+                    // console.log(idleWidth)
+                    rank = {
+                        ...rank,
+                        currency: {
+                            souls: rank.currency.souls + rank.mizunoe.amount
+                        }
+                    };
+                } else {
+
+                    //error
+                    console.log(`error ${idleWidth}`)
+                }
+                rank = {
+                    ...rank,
+                    mizunoe: {
+                        ...rank.mizunoe,
+                        style: {
+                            ...rank.mizunoe.style,
+                            width: `${idleWidth}%`
+                        },
+                        width: idleWidth
+                    }
+                }
+                //display update
+                setData(rank)
+                // console.log(data.mizunoe.width)
+            }, rank.mizunoe.speed);
+            //Clearing the interval
+            return () => clearInterval(mizunoeInterval);
+        }
+    }, [data]);
+
+    const upgrade = () => {
         let rank = data
         if (rank.currency.souls >= rank.mizunoe.cost) {
 
@@ -182,6 +298,25 @@ function App(props) {
                 };
             };
 
+            if (rank.mizunoe.progressStart == false) {
+
+                let idleWidth = rank.mizunoe.width
+                idleWidth++
+                // console.log(idleWidth)
+                rank = {
+                    ...rank,
+                    mizunoe: {
+                        ...rank.mizunoe,
+                        style: {
+                            ...rank.mizunoe.style,
+                            width: `${idleWidth}%`
+                        },
+                        width: idleWidth,
+                        progressStart: true
+                    }
+                };
+            };
+
             rank = {
                 ...rank,
                 mizunoe: {
@@ -190,8 +325,9 @@ function App(props) {
                 }
             };
             setData(rank)
-        };
-        console.log(data,rank)
+            // console.log(data, rank)
+        }
+        //display update
     };
 
     // //kanoto
@@ -363,11 +499,6 @@ function App(props) {
 
     // end bars
 
-    // idle bar progress with time delay
-    const barProgress = () => {
-
-    }
-
     return (
         <div>
             <header className="header" id="header">
@@ -455,7 +586,7 @@ function App(props) {
                                     <div>
                                         <h2 className="character-speak" id="characterSpeak">Welcome Mortal</h2>
 
-                                        <IdleBar name='Mizunoe' currency={data.mizunoe.amount} onClick={mizunoeUpgrade} cost={data.mizunoe.cost} interval={idleInterval} gain={data.mizunoe.value} />
+                                        <IdleBar name='Mizunoe' currency={data.mizunoe.amount} onClick={upgrade} cost={data.mizunoe.cost} gain={data.mizunoe.value} style={data.mizunoe.style} />
 
                                         {/* <IdleBar name='Kanoto' currency={kanotoCurrentEarn} onClick={kanotoUpgrade} cost={kanotoCurrentCost} gain={idleGains()} />
 
@@ -473,7 +604,7 @@ function App(props) {
 
                                         <IdleBar name='Kinoe' currency={kinoeCurrentEarn} onClick={kinoeUpgrade} cost={kinoeCurrentCost} gain={idleGains()} /> */}
 
-                                        <p className="upgrade-title">New Feature</p>
+                                        {/*<p className="upgrade-title">New Feature</p>
                                         <p className="upgrade-text" id="nextUnlockDisplay">{props.nextUnlock}</p>
                                         <div className="cost" id="earnProgressCostDisplay">
                                             <div className="coin-container">
@@ -482,7 +613,7 @@ function App(props) {
                                                     <input type="button" onClick={GameFunction.earnProgress} className="btn idle-upgrade-button" value="Upgrade" />
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                     </div>
                                 </div>
                             </div>
